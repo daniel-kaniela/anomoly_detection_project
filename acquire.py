@@ -1,12 +1,8 @@
-import warnings
-warnings.filterwarnings("ignore")
-import matplotlib.pyplot as plt
-
-import numpy as np
 import pandas as pd
-import seaborn as sns
-import env
+import numpy as np
+import os
 
+from env import host, user, password
 ########################
 def get_db_url(url):
     url = f'mysql+pymysql://{user}:{password}@{host}/{url}'
