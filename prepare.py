@@ -67,6 +67,7 @@ def program_split(df):
     'pending'))))))))))))))))
     df_ds.lesson.unique()
 
+
     # created lesson column with values for web dev lessons
     df_wd['lesson'] = np.where(df_wd.path.str.contains('search'),'search',
     np.where(df_wd.path.str.contains('index'),'index',
@@ -86,6 +87,13 @@ def program_split(df):
                                                                                                                                                 
     df_wd.lesson.unique()
 
+    ### remove lesson: pending, index, search, capstone
+
+    df_ds = df_ds[(df_ds.lesson!='search') & (df_ds.lesson!='appendix') & (df_ds.lesson!='capstone') & (df_ds.lesson!='pending')]
+    df_ds.lesson.unique()
+    ### remove lesson: pending, index, search, capstone
+    df_webdev = df_wd[(df_wd.lesson!='search') & (df_wd.lesson!='index') & (df_wd.lesson!='capstone') & (df_wd.lesson!='pending')]
+    df_wd.lesson.unique()
 
     # # set datetime & index
     # df_ds.date = pd.to_datetime(df_ds.date)
